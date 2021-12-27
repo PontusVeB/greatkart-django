@@ -11,8 +11,9 @@
 <div class="card">
   <div class="card-body">
     <h4 class='card-title mb-4'>Billing Adress</h4>
-    <form action="" method="post">
+    <form action="{% url 'place_order' %}" method="POST">
       {% csrf_token %}
+
       <div class="form-row">
           <div class="col form-group">
             <label for="">First name</label>
@@ -55,7 +56,7 @@
       </div>
       <div class="form-row">
         <label for="">Order note</label>
-        <textarea name="note" class="form-control" rows="2" ></textarea>
+        <textarea name="order_note" class="form-control" rows="2" ></textarea>
 
       </div>
   </div>
@@ -90,7 +91,7 @@
       							{{item.variation_category | capfirst}} : {{item.variation_value | capfirst}} <br>
       						{% endfor %}
       					{% endif %}
-
+							</p>
       			</figcaption>
       		</figure>
       	</td>
@@ -109,13 +110,14 @@
 
       </tbody>
       </table>
-			<button type='submit' name='submit' class="btn btn-primary btn-block"> Place Order </button>
+			<button type='submit' value='submit' name='submit' class="btn btn-primary btn-block"> Place Order </button>
 			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
+			</form>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
 
 </aside> <!-- col.// -->
-</form>
+
 
 </div> <!-- row.// -->
 <!-- ============================ COMPONENT 1 END .// ================================= -->
